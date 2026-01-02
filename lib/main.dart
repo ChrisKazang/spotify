@@ -1,16 +1,15 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'login/bienvenuePage.dart';
 
 
-void main() /*async*/{
-  /*WidgetsFlutterBinding.ensureInitialized();
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  bool? seenWelcome = prefs.getBool('seensWelcome');*/
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(
       MyApp(
-        //seenWelcome: seenWelcome?? false
+
       )
   );
 }

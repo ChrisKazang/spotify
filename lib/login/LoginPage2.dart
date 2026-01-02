@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'LoginPage.dart';
 import 'bienvenuePage.dart';
 
@@ -24,7 +23,7 @@ class _LoginPageState extends State<LoginPage2> {
               PageRouteBuilder(
                 pageBuilder: (context, animation, secondaryAnimation) => BienvenuePage(),
                 transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                  const begin = Offset(1.0, 0.0); // Départ à droite
+                  const begin = Offset(1.0, 0.0);
                   const end = Offset.zero;
                   const curve = Curves.ease;
 
@@ -32,7 +31,7 @@ class _LoginPageState extends State<LoginPage2> {
 
                   return SlideTransition(
                     position: animation.drive(tween),
-                    child: child, // plus de FadeTransition
+                    child: child,
                   );
                 },
               ),
