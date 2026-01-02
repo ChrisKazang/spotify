@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:spotify/login/LoginPage.dart';
 
+import 'LoginPage2.dart';
+
 class BienvenuePage extends StatefulWidget {
   const BienvenuePage({super.key});
 
@@ -32,20 +34,16 @@ class _BienvenuePageState extends State<BienvenuePage> {
                   Center(
                     child: Column(
                       children: [
-                        Container(
-                          height: 70,
-                          width: 70,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              shape: BoxShape.circle
-                          ),
+                        Image.asset('assets/images/spotifylogo.png',
+                          width: 200,
                         ),
                         SizedBox(
-                          height: 20,
+                          height: 50,
                         ),
                         Text(
                           "Des millions de titres.\n "
                               "Gratuits sur Spotify.",
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -53,14 +51,29 @@ class _BienvenuePageState extends State<BienvenuePage> {
                           ),
                         ),
                         SizedBox(
-                          height: 170,
+                          height: 160,
                         ),
                         InkWell(
                             onTap: (){
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (_)=>LoginPage()
-                                  )
+                              Navigator.push(
+                                context,
+                                PageRouteBuilder(
+                                  pageBuilder: (context, animation, secondaryAnimation) => LoginPage(),
+                                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                    const begin = Offset(1.0, 0.0); // Départ à droite
+                                    const end = Offset.zero;
+                                    const curve = Curves.ease;
+
+                                    var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+                                    return SlideTransition(
+                                      position: animation.drive(tween),
+                                      child: child, // plus de FadeTransition
+                                    );
+                                  },
+                                ),
                               );
+
                             },
                             borderRadius: BorderRadius.circular(40),
                             child: Container(
@@ -84,6 +97,25 @@ class _BienvenuePageState extends State<BienvenuePage> {
                           height: 10,
                         ),
                         InkWell(
+                          onTap: (){
+                            Navigator.push(context,
+                              PageRouteBuilder(
+                                pageBuilder: (context, animation, secondaryAnimation) => LoginPage2(),
+                                transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                  const begin = Offset(1.0, 0.0); // Départ à droite
+                                  const end = Offset.zero;
+                                  const curve = Curves.ease;
+
+                                  var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+                                  return SlideTransition(
+                                    position: animation.drive(tween),
+                                    child: child, // plus de FadeTransition
+                                  );
+                                },
+                              ),
+                            );
+                          },
                             splashColor: Colors.white,
                             borderRadius: BorderRadius.circular(40),
                             child: Container(
