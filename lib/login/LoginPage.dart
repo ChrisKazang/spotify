@@ -154,6 +154,8 @@ class _LoginPageState extends State<LoginPage> {
 import 'package:flutter/material.dart';
 import 'package:spotify/login/LoginPage2.dart';
 import 'package:spotify/login/bienvenuePage.dart';
+import 'package:spotify/login/creeCompte.dart';
+import 'package:spotify/pages/homePage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -236,6 +238,25 @@ class _LoginPageState extends State<LoginPage> {
                           height: 70,
                         ),
                         InkWell(
+                          onTap: (){
+                            Navigator.push(context,
+                              PageRouteBuilder(
+                                pageBuilder: (context, animation, secondaryAnimation) => CreeCompte(),
+                                transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                  const begin = Offset(1.0, 0.0); // Départ à droite
+                                  const end = Offset.zero;
+                                  const curve = Curves.ease;
+
+                                  var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+                                  return SlideTransition(
+                                    position: animation.drive(tween),
+                                    child: child, // plus de FadeTransition
+                                  );
+                                },
+                              ),
+                            );
+                          },
                             borderRadius: BorderRadius.circular(40),
                             child: Container(
                               height: 65,

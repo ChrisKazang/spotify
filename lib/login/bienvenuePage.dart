@@ -102,7 +102,7 @@ class _BienvenuePageState extends State<BienvenuePage> {
                               PageRouteBuilder(
                                 pageBuilder: (context, animation, secondaryAnimation) => LoginPage2(),
                                 transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                                  const begin = Offset(1.0, 0.0); // Départ à droite
+                                  const begin = Offset(1.0, 0.0);
                                   const end = Offset.zero;
                                   const curve = Curves.ease;
 
@@ -110,7 +110,7 @@ class _BienvenuePageState extends State<BienvenuePage> {
 
                                   return SlideTransition(
                                     position: animation.drive(tween),
-                                    child: child, // plus de FadeTransition
+                                    child: child,
                                   );
                                 },
                               ),
