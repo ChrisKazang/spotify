@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:spotify/pages/musicPlayer.dart';
 import 'login/bienvenuePage.dart';
 
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Algo',
-        home: BienvenuePage()
+        home: MusicPlayer()
       /*seenWelcome? LoginPage() : BienvenuePage(),*/
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotify/login/passCompte.dart';
 
 class CreeCompte extends StatefulWidget {
   const CreeCompte({super.key});
@@ -8,6 +9,16 @@ class CreeCompte extends StatefulWidget {
 }
 
 class _CreeCompteState extends State<CreeCompte> {
+  final TextEditingController emailController = TextEditingController();
+  bool _EmailValid = false;
+  void _checkEmail(String value) {
+    final emailRegex =
+    RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+
+    setState(() {
+      _EmailValid = emailRegex.hasMatch(value);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +64,7 @@ class _CreeCompteState extends State<CreeCompte> {
                         alignment: Alignment.topLeft,
                         child: Text(
                           "Saisissez votre\n"
-                              "adresse e-mail\n",
+                              "adresse e-mail",
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -61,23 +72,25 @@ class _CreeCompteState extends State<CreeCompte> {
                           ),
                         ),
                       ),
-                      Container(
-                          decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(10)
+                      SizedBox(
+                        height: 15,
+                      ),
+                      TextField(
+                        controller: emailController,
+                        onChanged: _checkEmail,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold
+                        ),
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.grey[900],
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide.none,
                           ),
-                          child: Padding(padding: EdgeInsets.all(8),
-                            child:  TextField(
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold
-                              ),
-                              decoration: InputDecoration(
-                                  border: InputBorder.none
-                              ),
-                            ),
-                          )
+                        ),
                       ),
                       SizedBox(
                         height: 5,
@@ -93,11 +106,19 @@ class _CreeCompteState extends State<CreeCompte> {
                       ),
                       Center(
                         child: InkWell(
+                            borderRadius: BorderRadius.circular(80),
+                          onTap: (){_EmailValid? Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => PassCompte(emails: emailController),
+                            ),
+                          ): null;
+                          },
                           child: Container(
                             height: 70,
                             width: 150,
                             decoration: BoxDecoration(
-                                color: Colors.white,
+                                color: _EmailValid? Colors.white : Colors.white.withOpacity(0.3),
                                 borderRadius: BorderRadius.circular(80)
                             ),
                             child: Padding(padding: EdgeInsets.all(8),

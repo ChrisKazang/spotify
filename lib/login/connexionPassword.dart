@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:spotify/pages/homePage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class PassCompte extends StatefulWidget {
+class Pass2Compte extends StatefulWidget {
   final TextEditingController emails;
-  PassCompte({super.key ,required this.emails});
+  Pass2Compte({super.key ,required this.emails});
 
   @override
-  State<PassCompte> createState() => _PassCompteState();
+  State<Pass2Compte> createState() => _Pass2CompteState();
 }
 
-class _PassCompteState extends State<PassCompte> {
+class _Pass2CompteState extends State<Pass2Compte> {
   final TextEditingController passwordController = TextEditingController();
   bool _obscureText = true;
   bool _passValide = false;
@@ -30,7 +30,7 @@ class _PassCompteState extends State<PassCompte> {
   Future<void> login() async {
     try {
       final auth = FirebaseAuth.instance;
-      await auth.createUserWithEmailAndPassword(
+      await auth.signInWithEmailAndPassword(
         email: widget.emails.text.trim(),
         password: passwordController.text,
       );
@@ -67,7 +67,7 @@ class _PassCompteState extends State<PassCompte> {
     return Scaffold(
       backgroundColor: Colors.black87,
       appBar: AppBar(
-        title: Text("Créer un compte",
+        title: Text("Se connecter",
           style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
@@ -159,16 +159,16 @@ class _PassCompteState extends State<PassCompte> {
                     ),
                     Center(
                       child: InkWell(
-                          borderRadius: BorderRadius.circular(80),
+                        borderRadius: BorderRadius.circular(80),
                         onTap: (){
-                            login();
-                            User? user = FirebaseAuth.instance.currentUser;
-                            if (user != null) {
-                              print("Utilisateur connecté : ${user.email} - UID : ${user.uid}");
-                            } else {
-                              print("Pas de connexion");
-                            }
-                            _passValide? Navigator.push(context,
+                          login();
+                          User? user = FirebaseAuth.instance.currentUser;
+                          if (user != null) {
+                            print("Utilisateur connecté : ${user.email} - UID : ${user.uid}");
+                          } else {
+                            print("Pas de connexion");
+                          }
+                          _passValide? Navigator.push(context,
                               PageRouteBuilder(
                                 pageBuilder: (context, animation, secondaryAnimation) => HomePage(),
                                 transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -184,7 +184,7 @@ class _PassCompteState extends State<PassCompte> {
                                   );
                                 },
                               )
-                            ) : null;
+                          ) : null;
                         },
                         child: Container(
                           height: 70,

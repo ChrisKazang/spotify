@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'LoginPage.dart';
 import 'bienvenuePage.dart';
+import 'connexionEmail.dart';
 
 class LoginPage2 extends StatefulWidget {
   const LoginPage2({super.key});
@@ -80,6 +81,25 @@ class _LoginPageState extends State<LoginPage2> {
                           height: 100,
                         ),
                         InkWell(
+                          onTap: (){
+                            Navigator.push(context,
+                              PageRouteBuilder(
+                                pageBuilder: (context, animation, secondaryAnimation) => ConectCompte(),
+                                transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                  const begin = Offset(1.0, 0.0);
+                                  const end = Offset.zero;
+                                  const curve = Curves.ease;
+
+                                  var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+                                  return SlideTransition(
+                                    position: animation.drive(tween),
+                                    child: child, // plus de FadeTransition
+                                  );
+                                },
+                              ),
+                            );
+                          },
                             borderRadius: BorderRadius.circular(40),
                             child: Container(
                               height: 65,
