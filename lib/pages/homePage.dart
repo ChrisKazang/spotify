@@ -12,7 +12,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.red,
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(0),
           child: AppBar(
@@ -25,7 +25,6 @@ class _HomePageState extends State<HomePage> {
           color: Colors.black
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
                 alignment: Alignment.center,
@@ -42,7 +41,7 @@ class _HomePageState extends State<HomePage> {
                                 width: 60,
                               ),
                               Container(
-                                height: 40,
+                                height: 35,
                                 width: 70,
                                 decoration: BoxDecoration(
                                   borderRadius:BorderRadius.circular(80),
@@ -60,11 +59,11 @@ class _HomePageState extends State<HomePage> {
                                 width: 10,
                               ),
                               Container(
-                                height: 40,
+                                height: 35,
                                 width: 100,
                                 decoration: BoxDecoration(
                                   borderRadius:BorderRadius.circular(80),
-                                  color: Colors.white.withOpacity(0.4),
+                                  color: Colors.white.withOpacity(0.2),
                                 ),
                                 child: Center(
                                   child: Text("Musique",
@@ -79,11 +78,11 @@ class _HomePageState extends State<HomePage> {
                                 width: 10,
                               ),
                               Container(
-                                height: 40,
+                                height: 35,
                                 width: 100,
                                 decoration: BoxDecoration(
                                   borderRadius:BorderRadius.circular(80),
-                                  color: Colors.white.withOpacity(0.4),
+                                  color: Colors.white.withOpacity(0.2),
                                 ),
                                 child: Center(
                                   child: Text("Podcast",
@@ -98,11 +97,11 @@ class _HomePageState extends State<HomePage> {
                                 width: 10,
                               ),
                               Container(
-                                height: 40,
+                                height: 35,
                                 width: 120,
                                 decoration: BoxDecoration(
                                   borderRadius:BorderRadius.circular(80),
-                                  color: Colors.white.withOpacity(0.4),
+                                  color: Colors.white.withOpacity(0.2),
                                 ),
                                 child: Center(
                                   child: Text("Livre audio",
@@ -148,104 +147,410 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 )
-            )
+            ),
+            Expanded(child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                children: [
+                  SizedBox(height: 20,),
+                  Text("Concu pour ChrisKazang",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20
+                    ),
+                  ),
+                  SizedBox(height: 10,),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Column(
+                          children: [
+                            Container(
+                              height: 200,
+                              width: 200,
+                              color: Colors.green,
+                            ),
+                            Text("Salé",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 15
+                              ),
+                            ),
+                            Text("Niska",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 10
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(width: 5,),
+                        Column(
+                          children: [
+                            Container(
+                              height: 200,
+                              width: 200,
+                              color: Colors.green,
+                            ),
+                            Text("Salé",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 15
+                              ),
+                            ),
+                            Text("Niska",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 10
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(width: 5,),
+                        Column(
+                          children: [
+                            Container(
+                              height: 200,
+                              width: 200,
+                              color: Colors.green,
+                            ),
+                            Text("Salé",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 15
+                              ),
+                            ),
+                            Text("Niska",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 10
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(width: 5,),
+                        Column(
+                          children: [
+                            Container(
+                              height: 200,
+                              width: 200,
+                              color: Colors.green,
+                            ),
+                            Text("Salé",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 15
+                              ),
+                            ),
+                            Text("Niska",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 10
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Text("Vos artistes préférés",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20
+                    ),
+                  ),
+                  SizedBox(height: 10,),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Column(
+                          children: [
+                            Container(
+                              height: 200,
+                              width: 200,
+                              decoration: BoxDecoration(
+                                color: Colors.green,
+                                borderRadius: BorderRadius.circular(80),
+                              ),
+                            ),
+                            Text("Niska",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 15
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(width: 10,),
+                        Column(
+                          children: [
+                            Container(
+                              height: 200,
+                              width: 200,
+                              decoration: BoxDecoration(
+                                color: Colors.green,
+                                borderRadius: BorderRadius.circular(80),
+                              ),
+                            ),
+                            Text("Niska",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 15
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(width: 10,),
+                        Column(
+                          children: [
+                            Container(
+                              height: 200,
+                              width: 200,
+                              decoration: BoxDecoration(
+                                color: Colors.green,
+                                borderRadius: BorderRadius.circular(80),
+                              ),
+                            ),
+                            Text("Niska",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 15
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(width: 10,),
+                        Column(
+                          children: [
+                            Container(
+                              height: 200,
+                              width: 200,
+                              decoration: BoxDecoration(
+                                color: Colors.green,
+                                borderRadius: BorderRadius.circular(80),
+                              ),
+                            ),
+                            Text("Niska",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 15
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Text("Concu pour ChrisKazang",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20
+                    ),
+                  ),
+                  SizedBox(height: 10,),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Column(
+                          children: [
+                            Container(
+                              height: 200,
+                              width: 200,
+                              color: Colors.green,
+                            ),
+                            Text("Salé",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 15
+                              ),
+                            ),
+                            Text("Niska",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 10
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(width: 5,),
+                        Column(
+                          children: [
+                            Container(
+                              height: 200,
+                              width: 200,
+                              color: Colors.green,
+                            ),
+                            Text("Salé",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 15
+                              ),
+                            ),
+                            Text("Niska",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 10
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(width: 5,),
+                        Column(
+                          children: [
+                            Container(
+                              height: 200,
+                              width: 200,
+                              color: Colors.green,
+                            ),
+                            Text("Salé",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 15
+                              ),
+                            ),
+                            Text("Niska",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 10
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(width: 5,),
+                        Column(
+                          children: [
+                            Container(
+                              height: 200,
+                              width: 200,
+                              color: Colors.green,
+                            ),
+                            Text("Salé",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 15
+                              ),
+                            ),
+                            Text("Niska",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 10
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Text("Concu pour ChrisKazang",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20
+                    ),
+                  ),
+                  SizedBox(height: 10,),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Column(
+                          children: [
+                            Container(
+                              height: 200,
+                              width: 200,
+                              color: Colors.green,
+                            ),
+                            Text("Salé",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 15
+                              ),
+                            ),
+                            Text("Niska",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 10
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(width: 5,),
+                        Column(
+                          children: [
+                            Container(
+                              height: 200,
+                              width: 200,
+                              color: Colors.green,
+                            ),
+                            Text("Salé",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 15
+                              ),
+                            ),
+                            Text("Niska",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 10
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(width: 5,),
+                        Column(
+                          children: [
+                            Container(
+                              height: 200,
+                              width: 200,
+                              color: Colors.green,
+                            ),
+                            Text("Salé",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 15
+                              ),
+                            ),
+                            Text("Niska",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 10
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(width: 5,),
+                        Column(
+                          children: [
+                            Container(
+                              height: 200,
+                              width: 200,
+                              color: Colors.green,
+                            ),
+                            Text("Salé",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 15
+                              ),
+                            ),
+                            Text("Niska",
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 10
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ))
           ],
         ),
       ),
-      bottomNavigationBar: Container(
-        alignment: Alignment.center,
-        height: 70,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: Colors.black
-        ),
-        child: Padding(padding: EdgeInsets.all(8),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                child: Column(
-                  children: [
-                    Icon(Icons.home_filled,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                    Text("Accueil",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 10
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(
-                child: Column(
-                  children: [
-                    Icon(Icons.search,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                    Text("Recherche",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 10
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(
-                child: Column(
-                  children: [
-                    Icon(Icons.library_music_outlined,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                    Text("Bibliothèque",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 10
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(
-                child: Column(
-                  children: [
-                    Image.asset('assets/images/spotifylogo1.png',
-                      height: 30,
-                    ),
-                    Text("Premium",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 10
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(
-                child: Column(
-                  children: [
-                    Icon(Icons.add,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                    Text("Créer",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 10
-                      ),
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
-        )
-      )
       );
 
   }

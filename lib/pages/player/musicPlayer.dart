@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:spotify/contenu/couleur.dart';
 
 class MusicPlayer extends StatefulWidget {
@@ -11,7 +12,15 @@ class MusicPlayer extends StatefulWidget {
 class _MusicPlayerState extends State<MusicPlayer> {
   final double _progress = 0.3;
   bool liked = false;
+  final audioController = AudioController();
   bool playing = false;
+
+  @override
+  void initState() {
+    super.initState();
+    playing = audioController.isPlaying;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -45,7 +54,10 @@ class _MusicPlayerState extends State<MusicPlayer> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Ink(
+                  InkWell(
+                    onTap: (){
+                      Navigator.pop(context);
+                    },
                     child: Icon(Icons.keyboard_arrow_down_rounded,
                       color: Colors.white,
                       size: 35,
@@ -171,19 +183,34 @@ class _MusicPlayerState extends State<MusicPlayer> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: (){
+                    onTap: () async {
+                      if (playing) {
+                        // Pause
+                        audioController.pauseSong();
+                      } else {
+                        // Lecture
+                        await audioController.playSong(
+                            "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+                        );
+                      }
+
                       setState(() {
                         playing = !playing;
                       });
                     },
-                    child: playing? Icon(Icons.pause_circle,
+                    child: playing
+                        ? Icon(
+                      Icons.pause_circle,
                       color: Colors.white,
                       size: 80,
-                    ) :Icon(Icons.play_circle,
+                    )
+                        : Icon(
+                      Icons.play_circle,
                       color: Colors.white,
                       size: 80,
                     ),
                   ),
+
                   GestureDetector(
                     child: Icon(Icons.skip_next,
                       color: Colors.white,
@@ -239,4 +266,38 @@ void snackBar2(BuildContext context){
     behavior: SnackBarBehavior.floating,
   );
   ScaffoldMessenger.of(context).showSnackBar(snackBar);
+}
+
+class AudioController {
+  // Singleton pour avoir le même player partout
+  static final AudioController _instance = AudioController._internal();
+  factory AudioController() => _instance;
+  AudioController._internal();
+
+  final AudioPlayer player = AudioPlayer();
+
+  bool isPlaying = false;
+
+  Future<void> playSong(String url) async {
+    try {
+      await player.setUrl(url); // url en ligne, ou use setAsset pour fichiers locaux
+      player.play();
+      isPlaying = true;
+    } catch (e) {
+      print("Erreur lecture audio : $e");
+    }
+  }
+
+  void pauseSong() {
+    player.pause();
+    isPlaying = false;
+  }
+
+  void stopSong() {
+    player.stop();
+    isPlaying = false;
+  }
+
+  Stream<Duration?> get positionStream => player.positionStream;
+  Stream<PlayerState> get playerStateStream => player.playerStateStream;
 }

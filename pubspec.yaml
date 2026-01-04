@@ -36,9 +36,11 @@ dependencies:
   firebase_core: ^2.24.2
   firebase_auth: ^4.15.3
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -46,6 +48,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
+  just_audio: ^0.9.44
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -65,8 +68,13 @@ flutter:
       - assets/images/spotifylogo1.png
       - assets/images/g.png
       - assets/images/fb.png
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+      - assets/images/home.png
+      - assets/images/home1.png
+      - assets/images/search.png
+      - assets/images/search1.png
+      - assets/images/library.png
+      - assets/images/library1.png
+      - assets/audio/song.mp3
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
